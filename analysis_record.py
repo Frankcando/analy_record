@@ -24,6 +24,11 @@ start_moeny = 0 #init money
 service_change = 0.001
 Slippage = 0.0005
 
+df_detail =1
+df_day =1
+
+print("test test!")
+
 def read_data():
 
     print("judge file exist")
@@ -35,6 +40,8 @@ def read_data():
         return -1
 
     print("begin to read data")
+    global  df_detail
+    global  df_day
     df_detail = pd.read_csv(File_detail, encoding='utf-8')
     print(df_detail.loc[1][1])
     df_day = pd.read_csv(File_day,encoding='utf-8')
@@ -44,12 +51,12 @@ def read_data():
     return 1
 
 def calc():
-    # strdatetime = str(df_detail.loc[0][1])
-    # strdate = strdatetime[0:8]
-    # # 对detail做循环 选取当天所有的交易
-    # for index, row in df_detail.iterrows():
-    #     print("ok")
-    print("calc")
+    strdatetime = str(df_detail.loc[0][1])
+    strdate = strdatetime[0:8]
+    print(strdate)
+    # 对detail做循环 选取当天所有的交易
+    #for index, row in df_detail.iterrows():
+
 def init():
     cf = configparser.ConfigParser()
     cf.read('setting.ini')
